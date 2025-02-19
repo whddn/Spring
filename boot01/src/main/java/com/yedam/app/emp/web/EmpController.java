@@ -61,6 +61,8 @@ public class EmpController {
 	@GetMapping("empInsert")
 	public String empInsertForm() {
 		return "emp/insert";
+		// prefix + return + suffix
+		// classpath:/templates/emp/insert.html
 	}
 
 	// 등록 - 처리 : POST => form 태그를 통한 submit
@@ -82,7 +84,7 @@ public class EmpController {
 
 	// 수정 - 페이지 : GET <=> 단건조회
 	// 1) URL + METHOD
-	@GetMapping("empUpdate")
+	@GetMapping("empUpdate") // empUpdate?employeeId=${emp.employeeId}
 	public String empUpdate(EmpVO empVO, Model model) {
 		// 2) Service
 		EmpVO findVO = empService.findEmpInfo(empVO);
@@ -90,6 +92,8 @@ public class EmpController {
 		model.addAttribute("emp", findVO);
 		// 3) View
 		return "emp/update";
+		// classpath:/templates/emp/update.html
+		
 	}
 	// 수정 - 처리 : POST / AJAX => JSON(@RequestBody)
 	@PostMapping("empUpdate")
@@ -99,7 +103,7 @@ public class EmpController {
 	}
 
 	// 단건삭제 - 처리 : GET + 전달받을 데이터 1건 => QueryString(@RequestParam)
-	@GetMapping("empDelete")
+	@GetMapping("empDelete") // localhost:8099/empDelete?employeeId=100
 	public String empDelete(Integer employeeId) {
 		empService.removeEmpInfo(employeeId);
 		return "redirect:empList";
