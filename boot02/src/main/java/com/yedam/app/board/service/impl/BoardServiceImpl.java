@@ -22,4 +22,9 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.selectAllList();
 	}
 
+	@Override
+	public BoardVO findBoardByBno(BoardVO boardVO) {
+		return boardMapper.selectInfo(boardVO);
+	}
+
 }

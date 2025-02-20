@@ -14,8 +14,26 @@
 	   order by bno
 	</select>
 	
-	<select id="selectInfo" resultType="BoardVO">
-		
+	<select id="selectInfo" parameterType="BoardVO" resultType="BoardVO">
+		select bno
+			  ,title
+			  ,contents
+			  ,writer
+			  ,regdate
+			  ,updatedate
+			  ,image
+		from board
+		where bno = #{bno}
 	</select>
+	
+	<insert id="insertInfo" parameterType="BoardVO">
+		<selectKey keyProperty=""
+				   resultType=""
+				   order="BEFORE">
+			select NVL(MAX(bno), 1000) + 1
+			from board
+		</selectKey>
+		
+	</insert>
 	
 </mapper>

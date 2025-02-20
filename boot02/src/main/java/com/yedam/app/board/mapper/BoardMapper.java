@@ -11,7 +11,7 @@ public interface BoardMapper {
 	public BoardVO selectInfo(BoardVO boardVO);
 	
 	// 등록
-	
+	public int insertInfo(BoardVO boardVO);
 	// 수정
 	
 	// 삭제
