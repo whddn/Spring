@@ -26,13 +26,30 @@
 		where bno = #{bno}
 	</select>
 	
+	<!-- 등록 -->
 	<insert id="insertInfo" parameterType="BoardVO">
-		<selectKey keyProperty=""
-				   resultType=""
+		<selectKey keyProperty="bno"
+				   resultType="Integer"
 				   order="BEFORE">
-			select NVL(MAX(bno), 1000) + 1
+			select NVL(MAX(bno), 0) + 1
 			from board
 		</selectKey>
+		insert into board(
+			bno
+		   ,title
+		   ,contents
+		   ,writer
+		   ,regdate
+		   ,image
+		)
+		values(
+			 #{bno}
+			,#{title}
+			,#{contents}
+			,#{writer}
+			,#{regdate}
+			,#{image}
+		)
 		
 	</insert>
 	

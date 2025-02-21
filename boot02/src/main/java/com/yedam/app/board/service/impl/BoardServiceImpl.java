@@ -27,4 +27,10 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.selectInfo(boardVO);
 	}
 
+	@Override
+	public int createBoard(BoardVO boardVO) {
+		int result = boardMapper.insertInfo(boardVO);
+		return result == 1 ? boardVO.getBno() : -1;
+	}
+
 }
