@@ -31,7 +31,7 @@
 		<selectKey keyProperty="bno"
 				   resultType="Integer"
 				   order="BEFORE">
-			select NVL(MAX(bno), 0) + 1
+			select NVL(MAX(bno), 100) + 1
 			from board
 		</selectKey>
 		insert into board(
