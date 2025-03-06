@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 전체조회
+    fetch('http://localhost:8099/yd/emps')
+    .then(res => res.json())
+    .then(result => {
+      console.log('===== 전체조회');
+      console.log(result);
+    })
+    .catch(err => console.log(err));
+
+
+    // 단건조회
+    fetch('http://localhost:8099/yd/emps/216')
+    .then(res => res.json())
+    .then(result => {
+      console.log('===== 단건조회');
+      console.log(result);
+    })
+    .catch(err => console.log(err));
+
+
+    // 등록
+    let insertDta = {
+      'lastName' : 'Hong',
+      'email' : 'has@naver.com',
+      'jobId' : 'IT_PROG',
+    }
+    fetch('http://localhost:8099/yd/emps',{
+      method : 'post',
+      //@RequestBody
+      headers : {
+        'Content-type' : 'application/json',
+      },
+      body : JSON.stringify(insertDta),
+    })
+    .then(res => res.json())
+    .then(result => {
+      console.log('===== 등록');
+      console.log(result);
+    })
+    .catch(err => console.log(err));
+
+    
+    // 수정
+    let updateDta = {
+      'lastName' : 'Hong',
+      'email' : 'abc@naver.com',
+      'jobId' : 'SA_REP',
+    }
+    fetch('http://localhost:8099/yd/emps/100',{
+      method : 'put',
+      // @RequestBody
+      headers : {
+        'Content-type' : 'application/json',
+      },
+      body : JSON.stringify(updateDta),
+    })
+    .then(res => res.json())
+    .then(result => {
+      console.log('===== 수정');
+      console.log(result);
+    })
+    .catch(err => console.log(err));
+
+
+    // 삭제
+    fetch('http://localhost:8099/yd/emps/216',{
+      method : 'delete',
+    })
+    .then(res => res.json())
+    .then(result => {
+      console.log('===== 단건삭제');
+      console.log(result);
+    })
+    .catch(err => console.log(err));
+  </script>
+</body>
+
+</html>

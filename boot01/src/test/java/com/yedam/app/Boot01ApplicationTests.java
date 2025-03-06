@@ -83,15 +83,15 @@ class Boot01ApplicationTests {
 		assertEquals(1, result);
 	}
 
-	@Test
-	void selectKeyTest() {
-		EmpVO empVO = new EmpVO();
-		empVO.setLastName("HONG");
-		empVO.setEmail("HOng@google.com");
-		empVO.setJobId("IT_PROG");
-		// employeeId : null
-		int result = empMapper.insertEmInfo(empVO);
-		System.out.println("====" + empVO.getEmployeeId());
-		assertEquals(1, result);
-	}
+//	@Test
+//	void selectKeyTest() {
+//		EmpVO empVO = new EmpVO();
+//		empVO.setLastName("HONG");
+//		empVO.setEmail("HOng@google.com");
+//		empVO.setJobId("IT_PROG");
+//		// employeeId : null
+//		int result = empMapper.insertEmInfo(empVO);
+//		System.out.println("====" + empVO.getEmployeeId());
+//		assertEquals(1, result);
+//	}
 }

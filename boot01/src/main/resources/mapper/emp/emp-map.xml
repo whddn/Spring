@@ -92,7 +92,7 @@
 			<!-- 특정 조건(test 속성)을 만족할때만 실행되는 구문 -->
 			, job_id = #{jobId}
 		</if>
-		, hire_date = #{hireDate}
+		<!--  , hire_date = #{hireDate} -->
 		where employee_id = #{employeeId}
 	</update>
 
